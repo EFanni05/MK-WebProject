@@ -1,0 +1,863 @@
+
+/* ========================================
+   ALAPBEÁLLÍTÁSOK ÉS SZÍNVÁLTOZÓK
+======================================== */
+
+:root {
+  --sidebar-width: 280px;
+
+  --nav-bg: #f5f2f2;
+  --nav-text: #212529;
+  --nav-muted: #6c757d;
+  --nav-border: rgba(0, 0, 0, 0.12);
+  --nav-hover-bg: #212529;
+  --nav-hover-text: #ffffff;
+  --nav-overlay: rgba(0, 0, 0, 0.35);
+  --nav-item-hover-bg: rgba(33, 37, 41, 0.08);
+  --nav-shadow: 0 -10px 40px rgba(0, 0, 0, 0.12);
+
+  --accent: #0d9bbd;
+  --accent-dark: #087e9c;
+}
+
+[data-bs-theme="dark"] {
+  --nav-bg: #161616;
+  --nav-text: #f5f5f5;
+  --nav-muted: #a0a0a0;
+  --nav-border: rgba(255, 255, 255, 0.14);
+  --nav-hover-bg: #f5f5f5;
+  --nav-hover-text: #161616;
+  --nav-overlay: rgba(0, 0, 0, 0.6);
+  --nav-item-hover-bg: rgba(255, 255, 255, 0.08);
+  --nav-shadow: 0 -10px 40px rgba(0, 0, 0, 0.35);
+}
+
+/* ========================================
+   ÁLTALÁNOS BEÁLLÍTÁSOK
+======================================== */
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  overflow-x: hidden;
+}
+
+img {
+  max-width: 100%;
+}
+
+button,
+a {
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* ========================================
+   ÁTMENETEK
+======================================== */
+
+.desktop-nav,
+.mobile-nav,
+.mobile-nav-toggle,
+.desktop-nav__social a,
+.mobile-nav__social a,
+.theme-toggle,
+.mobile-nav__item {
+  transition:
+    background-color 200ms ease,
+    color 200ms ease,
+    border-color 200ms ease;
+}
+
+/* ========================================
+   ASZTALI OLDALSÁV
+======================================== */
+
+.desktop-nav {
+  position: fixed;
+  inset: 0 auto 0 0;
+  z-index: 1000;
+
+  display: flex;
+  flex-direction: column;
+
+  width: var(--sidebar-width);
+  height: 100vh;
+  padding: 2rem;
+
+  color: var(--nav-text);
+  background: var(--nav-bg);
+  border-right: 1px solid var(--nav-border);
+}
+
+.desktop-nav__header {
+  margin-bottom: 3rem;
+}
+
+.desktop-nav__logo {
+  display: block;
+  width: 80px;
+  height: auto;
+  margin-bottom: 1rem;
+}
+
+.desktop-nav__title {
+  margin: 0;
+  color: var(--nav-text);
+  font-size: 1.25rem;
+  font-weight: 600;
+}
+
+.desktop-nav__links {
+  gap: 0.35rem;
+}
+
+.desktop-nav__links .nav-link {
+  padding: 0.7rem 0;
+  color: var(--nav-muted);
+  font-size: 1rem;
+
+  transition:
+    color 180ms ease,
+    transform 180ms ease;
+}
+
+.desktop-nav__links .nav-link:hover,
+.desktop-nav__links .nav-link.active {
+  color: var(--nav-text);
+  transform: translateX(4px);
+}
+
+/* ========================================
+   ASZTALI TÉRKÉP
+======================================== */
+
+.desktop-nav__map {
+  margin-top: auto;
+  margin-bottom: 1.5rem;
+  overflow: hidden;
+  border-radius: 12px;
+}
+
+.desktop-nav__map iframe {
+  display: block;
+  width: 100%;
+  min-height: 160px;
+  border: 0;
+}
+
+/* ========================================
+   KÖZÖSSÉGI ÉS TÉMA GOMBOK
+======================================== */
+
+.desktop-nav__social,
+.mobile-nav__social {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.desktop-nav__social a,
+.mobile-nav__social a,
+.theme-toggle {
+  display: grid;
+  place-items: center;
+
+  width: 40px;
+  height: 40px;
+  padding: 0;
+
+  color: var(--nav-text);
+  font-size: 1.1rem;
+  text-decoration: none;
+
+  background: transparent;
+  border: 1px solid var(--nav-border);
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.desktop-nav__social a:hover,
+.mobile-nav__social a:hover,
+.theme-toggle:hover {
+  color: var(--nav-hover-text);
+  background: var(--nav-hover-bg);
+}
+
+/* ========================================
+   FŐ TARTALOM
+======================================== */
+
+.page-content {
+  min-height: 100vh;
+  width: 100%;
+}
+
+@media (min-width: 992px) {
+  .page-content {
+    margin-left: var(--sidebar-width);
+    width: calc(100% - var(--sidebar-width));
+  }
+}
+
+/* ========================================
+   MOBIL NAVIGÁCIÓS GOMB
+======================================== */
+
+.mobile-nav-toggle {
+  position: fixed;
+  top: 50%;
+  right: 0;
+  z-index: 1055;
+
+  width: 52px;
+  height: 58px;
+  padding: 0;
+
+  color: var(--nav-hover-text);
+  font-size: 1.6rem;
+
+  background: var(--nav-hover-bg);
+  border: 0;
+  border-radius: 14px 0 0 14px;
+
+  transform: translateY(-50%);
+  cursor: pointer;
+}
+
+.mobile-nav-toggle i {
+  display: block;
+  transition: transform 250ms ease;
+}
+
+.mobile-nav-toggle.is-open i {
+  transform: rotate(90deg);
+}
+
+/* ========================================
+   MOBIL HÁTTÉR
+======================================== */
+
+.mobile-nav-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 1040;
+
+  visibility: hidden;
+  opacity: 0;
+
+  background: var(--nav-overlay);
+
+  transition:
+    opacity 250ms ease,
+    visibility 250ms ease;
+}
+
+.mobile-nav-overlay.is-open {
+  visibility: visible;
+  opacity: 1;
+}
+
+/* ========================================
+   MOBIL ALSÓ MENÜ
+======================================== */
+
+.mobile-nav {
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 1050;
+
+  padding:
+    0.5rem
+    1rem
+    calc(1rem + env(safe-area-inset-bottom));
+
+  color: var(--nav-text);
+  background: var(--nav-bg);
+  border-radius: 24px 24px 0 0;
+  box-shadow: var(--nav-shadow);
+
+  transform: translateY(110%);
+  transition:
+    transform 300ms cubic-bezier(0.2, 0.8, 0.2, 1),
+    background-color 200ms ease,
+    color 200ms ease;
+}
+
+.mobile-nav.is-open {
+  transform: translateY(0);
+}
+
+.mobile-nav__handle {
+  width: 42px;
+  height: 4px;
+  margin: 0.25rem auto 1rem;
+
+  background: var(--nav-border);
+  border-radius: 999px;
+}
+
+.mobile-nav__links {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0.5rem;
+}
+
+.mobile-nav__item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  min-height: 72px;
+
+  color: var(--nav-muted);
+  text-decoration: none;
+  border-radius: 12px;
+}
+
+.mobile-nav__item i {
+  margin-bottom: 0.25rem;
+  font-size: 1.35rem;
+}
+
+.mobile-nav__item span {
+  font-size: 0.75rem;
+}
+
+.mobile-nav__item:hover,
+.mobile-nav__item.active {
+  color: var(--nav-text);
+  background: var(--nav-item-hover-bg);
+}
+
+.mobile-nav__social {
+  justify-content: center;
+  margin-top: 1rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--nav-border);
+}
+
+body.mobile-nav-open {
+  overflow: hidden;
+}
+
+/* ========================================
+   ŰRLAPOK ÉS MODALOK
+======================================== */
+
+.form-modal {
+  overflow: hidden;
+  border: 0;
+  border-radius: 20px;
+}
+
+.form-modal iframe {
+  display: block;
+  width: 100%;
+  height: min(650px, 75vh);
+  border: 0;
+}
+
+@media (max-width: 575.98px) {
+  .modal-dialog {
+    margin: 0.75rem;
+  }
+
+  .form-modal iframe {
+    height: 75vh;
+  }
+}
+
+/* ========================================
+   TÉRKÉP
+======================================== */
+
+#map_iframe {
+  display: block;
+  width: 100%;
+  height: min(250px, 50vh);
+  border: 2px solid var(--nav-border);
+  border-radius: 10px;
+}
+
+/* ========================================
+   KÁRTYÁK
+======================================== */
+
+.cards-section {
+  padding: 2rem 0;
+}
+
+.info-card {
+  height: 100%;
+  overflow: hidden;
+
+  color: var(--nav-text);
+  background: var(--nav-bg);
+
+  border: 1px solid var(--nav-border);
+  border-radius: 18px;
+
+  cursor: pointer;
+
+  transition:
+    transform 200ms ease,
+    border-color 200ms ease,
+    box-shadow 200ms ease;
+}
+
+.info-card:hover {
+  transform: translateY(-6px);
+  border-color: var(--nav-text);
+  box-shadow: var(--nav-shadow);
+}
+
+.info-card:focus-visible {
+  outline: 3px solid var(--bs-info, #0dcaf0);
+  outline-offset: 4px;
+}
+
+.info-card img {
+  width: 75%;
+  height: 75%;
+  align-self: center;
+  object-fit: fill;
+}
+
+.info-card .card-body {
+  padding: 1.5rem;
+}
+
+.info-card .card-title {
+  color: var(--nav-text);
+}
+
+.info-card .card-text {
+  color: var(--nav-muted);
+}
+
+@media (max-width: 991.98px) {
+  .info-card img {
+    height: 220px;
+  }
+}
+
+/* ========================================
+   KÁRTYA FELUGRÓ ABLAK
+======================================== */
+
+.card-popup {
+  position: fixed;
+  inset: 0;
+  z-index: 2000;
+
+  display: none;
+  align-items: center;
+  justify-content: center;
+
+  padding: 1rem;
+  background: rgba(0, 0, 0, 0.68);
+}
+
+.card-popup.is-open {
+  display: flex;
+}
+
+.card-popup__panel {
+  position: relative;
+
+  display: flex;
+  flex-direction: column;
+
+  width: min(900px, 100%);
+  max-height: min(85vh, 850px);
+  overflow: hidden;
+
+  color: var(--bs-body-color, #212529);
+  background: var(--bs-body-bg, #fff);
+
+  border-radius: 1rem;
+  box-shadow: 0 1rem 3rem rgba(0, 0, 0, 0.3);
+}
+
+.card-popup__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+
+  padding: 1rem 1.25rem;
+  border-bottom: 1px solid var(--bs-border-color, #dee2e6);
+}
+
+.card-popup__title {
+  margin: 0;
+  font-size: 1.25rem;
+}
+
+.card-popup__close {
+  flex: 0 0 auto;
+
+  display: inline-grid;
+  place-items: center;
+
+  width: 2.5rem;
+  height: 2.5rem;
+
+  color: inherit;
+  font-size: 1.75rem;
+  line-height: 1;
+
+  background: transparent;
+  border: 0;
+  border-radius: 50%;
+
+  cursor: pointer;
+}
+
+.card-popup__close:hover {
+  background: var(--bs-secondary-bg, #e9ecef);
+}
+
+.card-popup__body {
+  min-height: 0;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+
+  padding: 1.25rem;
+  -webkit-overflow-scrolling: touch;
+}
+
+.card-popup__image {
+  display: block;
+  width: 100%;
+  max-height: 320px;
+  margin-bottom: 1rem;
+
+  border-radius: 0.75rem;
+  object-fit: cover;
+}
+
+body.card-popup-open {
+  overflow: hidden;
+}
+
+/* ========================================
+   MÉDIA SZEKCIÓ
+======================================== */
+
+.media-section {
+  width: 100%;
+  padding: 2rem 0;
+}
+
+.media-section__inner {
+  width: 100%;
+}
+
+.media-section .row {
+  --bs-gutter-x: 1.5rem;
+}
+
+.media-card {
+  overflow: hidden;
+
+  color: var(--nav-text);
+  background: var(--nav-bg);
+
+  border: 1px solid var(--nav-border);
+  border-radius: 16px;
+}
+
+.media-card__title {
+  padding: 1rem 1.25rem;
+}
+
+.media-card__title h3 {
+  color: var(--nav-text);
+  font-weight: 600;
+}
+
+.media-card__embed {
+  position: relative;
+
+  width: 100%;
+  aspect-ratio: 16 / 9;
+
+  overflow: hidden;
+  background: #000;
+}
+
+.media-card__embed iframe {
+  position: absolute;
+  inset: 0;
+
+  width: 100%;
+  height: 100%;
+
+  border: 0;
+}
+
+.media-card__embed--youtube {
+  aspect-ratio: 21 / 9;
+}
+
+.media-card__description {
+  padding: 0.8rem 1.25rem 1rem;
+}
+
+.media-card__description p {
+  color: var(--nav-muted);
+  font-size: 0.875rem;
+}
+
+/* ========================================
+   LOGÓ
+======================================== */
+
+#mik_logo {
+  width: 250px;
+  height: auto;
+  margin: 10px;
+}
+
+/* ========================================
+   ESEMÉNYEK SZEKCIÓ
+======================================== */
+
+.events-section {
+  min-height: auto !important;
+  padding: 3rem 2rem 1.5rem !important;
+}
+
+.events-container {
+  width: 100%;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.events-container h2 {
+  margin-bottom: 2rem;
+  color: var(--nav-text);
+  font-weight: 700;
+}
+
+/* Google Naptár doboz */
+
+.event-calendar-action {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem;
+
+  width: 100%;
+  max-width: none;
+  padding: 3rem;
+
+  color: var(--nav-text);
+  background: var(--nav-bg);
+
+  border: 1px solid var(--nav-border);
+  border-left: 5px solid var(--accent);
+  border-radius: 22px;
+
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.07);
+}
+
+/* Szöveges tartalom */
+
+.event-calendar-content {
+  flex: 1;
+  max-width: 650px;
+}
+
+.event-calendar-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+
+  margin-bottom: 1rem;
+
+  color: var(--accent);
+  font-size: 0.85rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.event-calendar-content h3 {
+  margin-bottom: 1rem;
+
+  color: var(--nav-text);
+  font-size: clamp(1.5rem, 3vw, 2.1rem);
+  font-weight: 700;
+}
+
+.event-calendar-content p {
+  margin-bottom: 1.5rem;
+
+  color: var(--nav-muted);
+  font-size: 1rem;
+  line-height: 1.8;
+}
+
+/* Google Naptár gomb */
+
+.event-calendar-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.7rem;
+
+  padding: 1rem 1.7rem;
+
+  color: #ffffff !important;
+  background: var(--accent);
+
+  border: none;
+  border-radius: 12px;
+
+  font-weight: 600;
+  text-decoration: none;
+
+  box-shadow: 0 5px 15px rgba(13, 155, 189, 0.2);
+
+  transition: all 200ms ease;
+}
+
+.event-calendar-button:hover {
+  color: #ffffff !important;
+  background: var(--accent-dark);
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(13, 155, 189, 0.3);
+}
+
+.event-calendar-button i {
+  font-size: 1.2rem;
+}
+
+/* Naptár illusztráció */
+
+.event-calendar-image {
+  flex: 0 0 220px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.event-calendar-image svg {
+  display: block;
+  width: 100%;
+  max-width: 220px;
+  height: auto;
+}
+
+/* ========================================
+   LÁBLÉC
+======================================== */
+
+.page-content > .footer {
+  margin-top: 0 !important;
+}
+
+/* ========================================
+   RESZPONZÍV BEÁLLÍTÁSOK
+======================================== */
+
+@media (max-width: 991.98px) {
+  .desktop-nav {
+    display: none;
+  }
+
+  .page-content {
+    margin-left: 0;
+    width: 100%;
+  }
+}
+
+@media (max-width: 767.98px) {
+  .events-section {
+    padding: 1.5rem !important;
+  }
+
+  .events-container h2 {
+    margin-bottom: 1.25rem;
+  }
+
+  .event-calendar-action {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 1.5rem;
+    padding: 1.5rem;
+  }
+
+  .event-calendar-content {
+    max-width: none;
+  }
+
+  .event-calendar-button {
+    display: flex;
+    width: 100%;
+  }
+
+  .event-calendar-image {
+    flex: none;
+    width: 100%;
+  }
+
+  .event-calendar-image svg {
+    max-width: 160px;
+  }
+}
+
+@media (max-width: 576px) {
+  .card-popup {
+    padding: 0.5rem;
+  }
+
+  .card-popup__panel {
+    max-height: 90vh;
+    border-radius: 0.75rem;
+  }
+
+  .card-popup__body {
+    padding: 1rem;
+  }
+
+  .mobile-nav__links {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  .event-calendar-action {
+    padding: 1.25rem;
+  }
+
+  #mik_logo {
+    max-width: 80%;
+  }
+}
+
+/* ========================================
+   MOZGÁSCSÖKKENTÉS
+======================================== */
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+  }
+}

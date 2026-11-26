@@ -1,0 +1,440 @@
+<!doctype html>
+<html lang="hu">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="MK beadandó munka">
+  <meta author="Elekes Fanni">
+  <meta
+    content="Gyógyszeripar, gyogszeripar, gyógyszeripari cég, gyógyszeripari vállalat, gyógyszeripari kutatás, gyógyszeripari fejlesztés, gyógyszeripari innováció, gyógyszeripari technológia, gyógyszeripari termékek, gyógyszeripari szolgáltatások"
+    name="keywords">
+  <meta lang="hu">
+  <link rel="icon" type="image/svg+xml" href="./pill.svg" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Gyógyszeripar</title>
+  <link rel="stylesheet" href="./card-popup.css" />
+</head>
+
+<body>
+  <div id="app">
+
+    <!-- Desktop sidebar -->
+    <aside class="desktop-nav d-none d-lg-flex flex-column">
+      <div class="desktop-nav__header">
+        <a href="/" class="navbar-brand">
+          <img src="./images/Img4.png" alt="Site logo" class="desktop-nav__logo" />
+        </a>
+        <h1 class="desktop-nav__title">My Website</h1>
+      </div>
+
+      <nav class="desktop-nav__links nav flex-column">
+        <a class="nav-link" href="#home">Home</a>
+        <a class="nav-link" href="#about">Média</a>
+        <a class="nav-link" href="#contact">Események</a>
+      </nav>
+
+      <hr>
+
+      <div class="desktop-nav__map mt-auto">
+        <h5 class="desktop-nav__map-title" style="margin-left: 0.5rem;">Location</h5>
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2716.609114603223!2d17.90595901276505!3d47.0871284710266!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47699a693492be33%3A0xb041338ca1ff6cf9!2sPannon%20Egyetem%20M%C5%B1szaki%20Informatikai%20Kar!5e0!3m2!1sen!2shu!4v1788948588514!5m2!1sen!2shu"
+          allowfullscreen=""
+          loading="lazy"
+          referrerpolicy="strict-origin-when-cross-origin"
+          id="map_iframe">Map</iframe>
+      </div>
+
+      <hr>
+
+      <div class="desktop-nav__social">
+        <a href="#" target="_blank" rel="noopener noreferrer" aria-label="Creators github repository">
+          <i class="bi bi-github"></i>
+        </a>
+
+        <a href="https://uni-pannon.hu/" target="_blank" rel="noopener noreferrer" aria-label="University website">
+          <i class="bi bi-mortarboard"></i>
+        </a>
+
+        <button id="themeToggle" class="theme-toggle" type="button" aria-label="Toggle color mode">
+          <i class="bi bi-moon"></i>
+        </button>
+      </div>
+    </aside>
+
+    <!-- Mobile nav button -->
+    <button id="mobileNavToggle" class="mobile-nav-toggle d-lg-none"
+      type="button" aria-label="Open navigation"
+      aria-controls="mobileNav" aria-expanded="false">
+      <i class="bi bi-list"></i>
+    </button>
+
+    <!-- Mobile overlay -->
+    <div id="mobileNavOverlay" class="mobile-nav-overlay d-lg-none"></div>
+
+    <!-- Mobile bottom navbar -->
+    <nav id="mobileNav" class="mobile-nav d-lg-none" aria-label="Mobile navigation">
+      <div class="mobile-nav__handle"></div>
+
+      <div class="mobile-nav__links">
+        <a href="#home" class="mobile-nav__item">
+          <i class="bi bi-house"></i>
+          <span>Home</span>
+        </a>
+
+        <a href="#about" class="mobile-nav__item">
+          <i class="bi bi-person"></i>
+          <span>Média</span>
+        </a>
+
+        <a href="#contact" class="mobile-nav__item">
+          <i class="bi bi-envelope"></i>
+          <span>Események</span>
+        </a>
+
+        <a href="#map" class="mobile-nav__item">
+          <i class="bi bi-map"></i>
+          <span>Térkép</span>
+        </a>
+      </div>
+
+      <div class="mobile-nav__social">
+        <a href="#" target="_blank" rel="noopener noreferrer" aria-label="Creators github repository">
+          <i class="bi bi-github"></i>
+        </a>
+
+        <a href="https://uni-pannon.hu/" target="_blank" rel="noopener noreferrer" aria-label="University website">
+          <i class="bi bi-mortarboard"></i>
+        </a>
+
+        <button class="theme-toggle" type="button" aria-label="Toggle color mode">
+          <i class="bi bi-moon"></i>
+        </button>
+      </div>
+    </nav>
+
+    <!-- Page content -->
+    <main class="page-content">
+
+      <!-- HOME -->
+      <section id="home" class="min-vh-100 p-4 p-lg-5">
+        <div class="container-fluid">
+          <h2 class="mb-4">Home</h2>
+
+          <p class="mb-4">
+            Üdvözöljük a gyógyszergyártás világában, ahol a tudomány, az innováció és a precizitás találkozik az egészség megőrzése érdekében. Célunk, hogy korszerű technológiák és szigorú minőségellenőrzési folyamatok segítségével megbízható, magas minőségű gyógyszerkészítményeket állítsunk elő.
+            A gyógyszergyártás minden lépésében kiemelt figyelmet fordítunk a biztonságra, a hatékonyságra és a folyamatos fejlesztésre, hogy termékeink hozzájáruljanak az emberek életminőségének javításához.
+          </p>
+
+          <!-- Cards -->
+          <section class="cards-section">
+            <div class="container-fluid px-0">
+              <div class="row g-4">
+
+                <div class="col-12 col-lg-4">
+                  <div class="card info-card h-100" id="history_card">
+                    <img src="./images/Img2.png" class="card-img-top" alt="Card one">
+
+                    <div class="card-body">
+                      <h3 class="card-title h5">Gyógyszergyártás története</h3>
+                      <p class="card-text">
+                        Egy rövidke a gyógyszergyártás történetéről
+                      </p>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="col-12 col-lg-4">
+                  <div class="card info-card h-100" id="capsule_card">
+                    <img src="./images/Img2.png" class="card-img-top" alt="Card two">
+
+                    <div class="card-body">
+                      <h3 class="card-title h5">Kemény Kapszulák</h3>
+                      <p class="card-text">
+                        Egy rövidke ismertetés a kemény kapszulákról
+                      </p>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="col-12 col-lg-4">
+                  <div class="card info-card h-100" id="granulatums_card">
+                    <img src="./images/Img2.png" class="card-img-top" alt="Card three">
+
+                    <div class="card-body">
+                      <h3 class="card-title h5">Granulátumok</h3>
+                      <p class="card-text">
+                        Egy rövidke ismertetés a granulátumokról
+                      </p>
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+          </section>
+
+          <!-- Quiz button -->
+          <button class="btn btn-outline-info d-grid gap-2 col-6 mx-auto"
+            data-bs-toggle="modal"
+            data-bs-target="#contactFormModal"
+            id="contactFormButton">
+            Teszteld a tudásodat!
+          </button>
+
+          <!-- Quiz modal -->
+          <div class="modal fade" id="contactFormModal" tabindex="-1"
+            aria-labelledby="contactFormLabel" aria-hidden="true">
+
+            <div class="modal-dialog modal-dialog-centered modal-lg">
+              <div class="modal-content form-modal">
+
+                <div class="modal-header">
+                  <h2 class="modal-title fs-5" id="contactFormLabel">
+                    Quize
+                  </h2>
+
+                  <button type="button" class="btn-close"
+                    data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+
+                <div class="modal-body p-0">
+                  <iframe
+                    src="https://docs.google.com/forms/d/e/1FAIpQLScgabUkRZxMRG8V5-8sdOI5YPbkwtVKDzUuHtldg-YAluLBew/viewform?embedded=true"
+                    title="Contact form"
+                    loading="lazy">Loading…</iframe>
+                </div>
+
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- MEDIA -->
+      <section id="about" class="min-vh-100 p-5">
+        <h2>Média sarok</h2>
+
+        <section class="media-section">
+          <div class="media-section__inner">
+
+            <!-- YouTube -->
+            <div class="row mb-4">
+              <div class="col-12">
+                <div class="card media-card">
+
+                  <div class="media-card__title">
+                    <h3 class="h5 mb-0">Video</h3>
+                  </div>
+
+                  <div class="media-card__embed media-card__embed--youtube">
+                    <iframe width="560" height="315" src="https://www.youtube.com/embed/aeG2lWxYO_Y?si=rallaBF9pb35RyJR" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                  </div>
+
+                  <div class="media-card__description">
+                    <p class="mb-0">
+                      Watch our latest video.
+                    </p>
+                  </div>
+
+                </div>
+              </div>
+            </div>
+
+            <!-- Slides and Sheets -->
+            <div class="row g-4">
+
+              <!-- Google Slides -->
+              <div class="col-12 col-md-6">
+                <div class="card media-card">
+
+                  <div class="media-card__title">
+                    <h3 class="h5 mb-0">Presentation</h3>
+                  </div>
+
+                  <div class="media-card__embed">
+                    <iframe src="https://docs.google.com/presentation/d/e/2PACX-1vQn6toXxwElEMhKOlPkrzxjmcCbY8A9A8xNjHAJdeB4n64U6WP1cPNpzqej6FY0Eg/pubembed?start=true&loop=true&delayms=5000" frameborder="0" width="1920" height="1109" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe>
+                  </div>
+
+                  <div class="media-card__description">
+                    <p class="mb-0">
+                      View our latest presentation.
+                    </p>
+                  </div>
+
+                </div>
+              </div>
+
+              <!-- Google Sheets -->
+              <div class="col-12 col-md-6">
+                <div class="card media-card">
+
+                  <div class="media-card__title">
+                    <h3 class="h5 mb-0">Information</h3>
+                  </div>
+
+                  <div class="media-card__embed">
+                    <iframe src="https://docs.google.com/spreadsheets/d/e/2PACX-1vSjLy1yXFvG5y230KDshw-GYax66mPdA2MERwG4W0xhxhkbqdF8Gfofs4qybgDfPQ/pubhtml?gid=596573528&amp;single=true&amp;widget=true&amp;headers=false"></iframe>
+                  </div>
+
+                  <div class="media-card__description">
+                    <p class="mb-0">
+                      View the latest information.
+                    </p>
+                  </div>
+
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </section>
+      </section>
+
+      <!-- EVENTS -->
+      <section id="contact" class="events-section p-4 p-lg-5">
+
+  <div class="events-container">
+
+    <h2>Események</h2>
+
+    <div class="event-calendar-action">
+
+      <div class="event-calendar-content">
+
+        <span class="event-calendar-label">
+          <i class="bi bi-calendar-event"></i>
+          2027.02.20
+        </span>
+
+        <h3>Ne maradj le a gyógyszeripari eseményekről!</h3>
+
+        <p>
+          Ha érdekel új gyógyszereknek a piacra kerülése, vagy a gyógyszeripar legújabb fejlesztései, akkor ne felejtsd el hozzáadni az eseményeket a Google Naptáradhoz!
+        </p>
+
+        <a
+          class="event-calendar-button"
+          href="https://calendar.app.google/wCHdKmJcVAyCGCwA8"
+          target="_blank"
+          rel="noopener noreferrer">
+
+          <i class="bi bi-calendar-plus"></i>
+          Mentés a Google Naptárba
+
+        </a>
+
+      </div>
+
+      <!-- Small decorative calendar illustration -->
+      <div class="event-calendar-image">
+
+        <svg viewBox="0 0 220 180"
+          xmlns="http://www.w3.org/2000/svg"
+          role="img"
+          aria-label="Naptár illusztráció">
+
+          <rect x="35" y="30" width="150" height="125"
+            rx="16" fill="#dff6fb"/>
+
+          <rect x="35" y="30" width="150" height="38"
+            rx="12" fill="#0d9bbd"/>
+
+          <path d="M35 55 H185"
+            stroke="#0d9bbd" stroke-width="2"/>
+
+          <rect x="65" y="20" width="9" height="28"
+            rx="4" fill="#087e9c"/>
+
+          <rect x="146" y="20" width="9" height="28"
+            rx="4" fill="#087e9c"/>
+
+          <g fill="#087e9c">
+            <rect x="55" y="82" width="18" height="18" rx="5"/>
+            <rect x="83" y="82" width="18" height="18" rx="5"/>
+            <rect x="111" y="82" width="18" height="18" rx="5"/>
+            <rect x="139" y="82" width="18" height="18" rx="5"/>
+
+            <rect x="55" y="111" width="18" height="18" rx="5"/>
+            <rect x="83" y="111" width="18" height="18" rx="5"/>
+            <rect x="111" y="111" width="18" height="18" rx="5"/>
+          </g>
+
+          <rect x="139" y="108" width="24" height="24"
+            rx="7" fill="#20b9d5"/>
+
+          <path d="M145 120 L150 125 L158 115"
+            stroke="white" stroke-width="3"
+            fill="none" stroke-linecap="round"
+            stroke-linejoin="round"/>
+
+        </svg>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+      <!-- FOOTER -->
+      <footer class="footer mt-auto py-3 bg-secondary-subtle">
+        <div class="container text-center">
+
+          <span class="text-muted">
+            <h6>Információk</h6>
+            <p>Hozájárult:</p>
+            <p>Készítette: Elekes Fanni</p>
+          </span>
+
+          <br>
+
+          <span>
+            <img src="./images/mik.png"
+              alt="Mérnöki Informatikai Kar logója"
+              id="mik_logo">
+          </span>
+
+          <br>
+
+          <span class="text-muted">
+            <p style="margin-top: 30px; font-size: small;">2026</p>
+          </span>
+
+        </div>
+      </footer>
+
+    </main>
+  </div>
+
+  <!-- Card popup -->
+  <div id="cardPopup" class="card-popup" aria-hidden="true">
+
+    <section class="card-popup__panel"
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="cardPopupTitle"
+      tabindex="-1">
+
+      <header class="card-popup__header">
+        <h2 id="cardPopupTitle" class="card-popup__title"></h2>
+
+        <button type="button"
+          class="card-popup__close"
+          id="cardPopupClose"
+          aria-label="Bezárás">
+          &times;
+        </button>
+      </header>
+
+      <div class="card-popup__body" id="cardPopupBody"></div>
+
+    </section>
+  </div>
+
+  <script type="module" src="./main.js"></script>
+
+</body>
+</html>
